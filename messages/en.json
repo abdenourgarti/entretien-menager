@@ -1,0 +1,11 @@
+{
+    "Navbar":{
+        "schools": "Schools",
+        "contact": "Contact Us",
+        "about": "About Us",
+        "home": "Home",
+        "subscribe": "Sign Up",
+        "login": "Login In",
+        "title": "Nour Al-Quran Academy"
+    }
+}
