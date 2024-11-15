@@ -1,6 +1,5 @@
 nav{
     width: 100%;
-    /*background: #333;*/
     color: white;
     padding: 4px 0;
     position: fixed;
@@ -21,4 +20,188 @@ nav ul li{
     list-style: none;
     margin: 5px 20px;
     font-size: 16px;
+}
+
+/* Style actif pour la page courante */
+nav ul li.active a {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+/* Effets hover */
+nav ul li a {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+nav ul li a:hover {
+    transform: scale(1.1);
+}
+
+.btn:hover, .btn-dark:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.dark-nav{
+    background: white;
+    color: #212EA0;
+    transition: 0.5s;
+}
+
+.btn-dark{
+    background: #212EA0;
+    color: white;
+    padding: 14px 25px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+}
+
+/* Style pour le sélecteur de langue */
+.language-selector {
+    position: relative;
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    color: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.lang-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.arrow-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+}
+
+.arrow-icon.rotate {
+    transform: rotate(180deg);
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.dropdown-item {
+    padding: 10px 20px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: none;
+    color: #212EA0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(33, 46, 160, 0.1);
+}
+
+.menu-icon{
+    display: none;
+}
+
+.containr{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.btn{
+    background: white;
+    color: #212121;
+    padding: 14px 25px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn .icon{
+    width: 20px;
+    margin-left: 10px;
+}
+
+@media (max-width: 1000px){
+    .containr{
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+@media (max-width: 1000px){
+    nav ul li{
+        margin: 10px 15px;
+    }
+}
+
+@media (max-width: 840px){
+    nav{
+        padding: 15px 0;
+    }
+    nav ul{
+        position: fixed;
+        top: 0;
+        right: 0px;
+        bottom: 0;
+        background: #212EA0;
+        z-index: -1;
+        width: 200px;
+        padding-top: 70px;
+        transition: 0.5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 25px 35px;
+    }
+    .menu-icon{
+        display: block;
+        width: 50px;
+        height: 70px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .hide-mobile-menu{
+        right: -200px;
+    }
+    
+    .language-dropdown {
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        margin-top: 5px;
+        margin-left: 20px;
+    }
+    
+    .dropdown-item {
+        color: white;
+    }
+    
+    .dropdown-item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
 }
