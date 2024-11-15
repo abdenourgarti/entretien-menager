@@ -122,36 +122,7 @@ nav ul li a:hover {
     display: none;
 }
 
-.containr{
-    padding-left: 10%;
-    padding-right: 10%;
-}
 
-.btn{
-    background: white;
-    color: #212121;
-    padding: 14px 25px;
-    font-size: 16px;
-    border-radius: 30px;
-    cursor: pointer;
-    border: 0;
-    outline: 0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn .icon{
-    width: 20px;
-    margin-left: 10px;
-}
-
-@media (max-width: 1000px){
-    .containr{
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-}
 
 @media (max-width: 1000px){
     nav ul li{
