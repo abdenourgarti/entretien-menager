@@ -40,7 +40,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className={`containr ${sticky ? (mobileMenu ? 'bg-white' : 'dark-nav') : ''}`}>
+    <nav className={`containr ${sticky ? (mobileMenu ? 'menuOpen' : 'dark-nav') : ''}`}>
       <Link href={`/${locale}`}>
         <Image className='logo' src="/logo.png" width={100} height={70} alt="logo" />
       </Link>

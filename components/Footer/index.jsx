@@ -24,7 +24,7 @@ const Footer = () => {
             <li><Link className='link' href="/">About Us</Link></li>
             <li><Link className='link' href="/">Contact Us</Link></li>
         </ul>
-        <p>© Copyright <Link href="https://www.linkedin.com/in/abdenour-garti-19177b192/">Abdenour</Link> | All rights Reserved</p>
+        <p>© Copyright <Link href="https://www.linkedin.com/in/abdenour-garti-19177b192/" target='_blank'>Abdenour</Link> | All rights Reserved</p>
     </footer>
   )
 }

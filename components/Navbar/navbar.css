@@ -47,6 +47,12 @@ nav ul li a:hover {
     background: white;
     color: #212EA0;
     transition: 0.5s;
+    border-bottom: 2px solid #212EA0;
+}
+
+.menuOpen{
+    background: white;
+    border-bottom: 2px solid #212EA0;
 }
 
 .btn-dark{
