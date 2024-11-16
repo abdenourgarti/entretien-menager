@@ -2,7 +2,7 @@ import React from 'react'
 
 const Section2 = () => {
   return (
-    <div className='h-[500px] bg-black'>
+    <div className='h-screen bg-white'>
       
     </div>
   )
