@@ -12,7 +12,8 @@ nav{
 }
 
 .logo{
-    color: white;
+    width: auto;
+    height: auto;
 }
 
 nav ul li{
