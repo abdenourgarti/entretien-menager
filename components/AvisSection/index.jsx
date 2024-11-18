@@ -105,7 +105,7 @@ const TestimonialsCarousel = () => {
             <p className="font-semibold text-gray-900">{testimonial.author}</p>
           </div>
         </div>
-        <p className="text-gray-600 italic">"{testimonial.text}"</p>
+        <p className="text-gray-600 italic">&#34;{testimonial.text}&#34;</p>
       </CardContent>
     </Card>
   );

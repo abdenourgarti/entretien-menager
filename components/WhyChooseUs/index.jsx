@@ -67,8 +67,8 @@ const WhyChooseUs = () => {
             Pourquoi Nous Choisir pour Vos Besoins de Nettoyage ?
           </h2>
           <p className="max-w-3xl mx-auto text-lg text-gray-600">
-            Chez Lieu Propre, nous nous engageons à offrir plus qu'un simple nettoyage. 
-            Avec des années d'expérience et une passion pour l'excellence, notre équipe 
+            Chez Lieu Propre, nous nous engageons à offrir plus qu&#39;un simple nettoyage. 
+            Avec des années d&#39;expérience et une passion pour l&#39;excellence, notre équipe 
             garantit que chaque recoin de votre maison ou bureau soit impeccable.
           </p>
         </div>
