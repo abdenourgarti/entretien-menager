@@ -11,8 +11,32 @@
     box-sizing: border-box;
 }
 
+/* Ajoutez ces styles pour la barre de défilement */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #212EA0;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #212EA0;
+}
+
+/* Pour Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #212EA0 #f1f1f1;
+}
+
 body{
-    background-color: #f0f0f0;
+    background-color: white;
 }
 
 .containr{

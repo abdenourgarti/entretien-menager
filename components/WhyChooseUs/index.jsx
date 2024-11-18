@@ -1,6 +1,5 @@
 import React from 'react';
 import { CheckCircle2, Leaf, Calendar, Award, Users, ThumbsUp } from 'lucide-react';
-import TestimonialsCarousel from './AvisSection';
 
 // Composant Card intégré
 const Card = React.forwardRef(({ className, ...props }, ref) => (
@@ -59,22 +58,11 @@ const WhyChooseUs = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      text: "Un service exceptionnel ! L'équipe est professionnelle et minutieuse.",
-      author: "Marie L."
-    },
-    {
-      text: "Je recommande vivement leurs services. Ma maison n'a jamais été aussi propre !",
-      author: "Pierre D."
-    }
-  ];
-
   return (
-    <section className="min-h-screen py-16 px-4 bg-gradient-to-b from-white to-blue-50">
+    <section className="min-h-screen py-16 px-4 bg-gradient-to-b from-white to-blue-100">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
             Pourquoi Nous Choisir pour Vos Besoins de Nettoyage ?
           </h2>
@@ -83,6 +71,13 @@ const WhyChooseUs = () => {
             Avec des années d'expérience et une passion pour l'excellence, notre équipe 
             garantit que chaque recoin de votre maison ou bureau soit impeccable.
           </p>
+        </div>
+
+        {/* CTA Button */}
+        <div className="text-center mb-12">
+          <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
+            Obtenir un Devis Gratuit
+          </button>
         </div>
 
         {/* Features Grid */}
@@ -104,32 +99,6 @@ const WhyChooseUs = () => {
           ))}
         </div>
 
-        {/* Stats Section */}
-        <div className="flex flex-wrap justify-center gap-12 mb-16">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="flex justify-center mb-2">
-                {stat.icon}
-              </div>
-              <div className="text-3xl font-bold text-blue-600">
-                {stat.number}
-              </div>
-              <div className="text-gray-600">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Testimonials */}
-        <TestimonialsCarousel />
-
-        {/* CTA Button */}
-        <div className="text-center">
-          <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
-            Obtenir un Devis Gratuit
-          </button>
-        </div>
       </div>
     </section>
   );
