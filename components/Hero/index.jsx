@@ -4,7 +4,7 @@ import { MdOutlineEast } from "react-icons/md";
 
 const Hero = () => {
   return (
-    <div className="w-full min-h-screen bg-[linear-gradient(rgba(136,135,141,0.5),rgba(69,59,134,0.5)),url('#/images1.jpeg')] bg-cover bg-center text-white flex items-center justify-center px-[10%] lg:px-[5%]">
+    <div className="w-full min-h-screen bg-[linear-gradient(rgba(136,135,141,0.5),rgba(69,59,134,0.5)),url('/images1.jpeg')] bg-cover bg-center text-white flex items-center justify-center px-[10%] lg:px-[5%]">
       <div className='hero-text'>
         <h1>Transforming Spaces, Elevating Comfort</h1>
         <p>Experience a cleaner, healthier home with our top-notch cleaning services. From spotless kitchens to pristine floors, we bring a touch of perfection to every corner. Let us handle the mess so you can enjoy more of what truly matters</p>

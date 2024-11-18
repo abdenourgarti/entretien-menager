@@ -48,14 +48,14 @@ const Navbar = () => {
         <li className={isActive('') ? 'active' : ''}>
           <Link href={`/${locale}`}>Home</Link>
         </li>
-        <li className={isActive('services') ? 'active' : ''}>
-          <Link href={`/${locale}/services`}>Services</Link>
+        <li className={isActive('Services') ? 'active' : ''}>
+          <Link href={`/${locale}/Services`}>Services</Link>
         </li>
-        <li className={isActive('about') ? 'active' : ''}>
-          <Link href={`/${locale}/about`}>About</Link>
+        <li className={isActive('About') ? 'active' : ''}>
+          <Link href={`/${locale}/About`}>About</Link>
         </li>
         <li>
-          <button className={`${sticky ? (mobileMenu ? 'btn' : 'btn-dark') : 'btn'}`}>
+          <button className={`${sticky ? (mobileMenu ? 'btn' : 'btn-dark') : 'btn'}`} onClick={() => router.push(`/${locale}/Contact`)}>
             Contact Us
           </button>
         </li>

@@ -40,6 +40,7 @@ const EnvironmentOption = ({ icon: Icon, label, value, checked, onChange, name }
 
 const ContactForm = () => {
   const [showDateField, setShowDateField] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState('');
 
   const environmentOptions = [
     { icon: Home, label: 'Maison', value: 'maison' },
@@ -98,13 +99,49 @@ const ContactForm = () => {
 
       return errors;
     },
-    onSubmit: (values, { setSubmitting, resetForm }) => {
-      console.log('Formulaire soumis:', values);
-      setTimeout(() => {
+    onSubmit: async (values, { setSubmitting, resetForm }) => {
+      try {
+        setSubmitStatus('pending');
+        
+        // Création de l'objet de données
+        const formData = {
+          access_key: "f3772c7f-ddbc-4292-8a3b-a0e12961247c", // Remplacez par votre clé d'accès
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: values.email,
+          phone: values.phone,
+          environment: values.environment,
+          contactType: values.contactType,
+          date: values.date,
+          message: values.message
+        };
+
+        // Envoi à web3forms
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        
+        if (result.success) {
+          setSubmitStatus('success');
+          resetForm();
+          setTimeout(() => setSubmitStatus(''), 5000); // Effacer le message après 5 secondes
+        } else {
+          setSubmitStatus('error');
+          console.error('Erreur lors de l\'envoi:', result);
+        }
+      } catch (error) {
+        setSubmitStatus('error');
+        console.error('Erreur lors de l\'envoi:', error);
+      } finally {
         setSubmitting(false);
-        resetForm();
-        alert('Message envoyé avec succès!');
-      }, 1000);
+      }
     },
   });
 
@@ -117,6 +154,18 @@ const ContactForm = () => {
     <div className="max-w-7xl mx-auto px-4 py-12 mb-24">
       <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
         <h2 className="text-3xl font-bold text-center mb-8">Contactez-nous</h2>
+        
+        {submitStatus === 'success' && (
+          <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
+            Message envoyé avec succès!
+          </div>
+        )}
+        
+        {submitStatus === 'error' && (
+          <div className="mb-6 p-4 bg-red-100 text-red-700 rounded-lg">
+            Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.
+          </div>
+        )}
         
         <form onSubmit={formik.handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -300,15 +349,23 @@ const ContactForm = () => {
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             />
           </div>
-
-          {/* Bouton d'envoi */}
+          
+          {/* Bouton d'envoi modifié */}
           <div className="text-center">
             <button
               type="submit"
-              disabled={formik.isSubmitting}
+              disabled={formik.isSubmitting || submitStatus === 'pending'}
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
             >
-              {formik.isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
+              {submitStatus === 'pending' ? (
+                <>
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Envoi en cours...
+                </>
+              ) : 'Envoyer'}
             </button>
           </div>
         </form>
@@ -316,21 +373,18 @@ const ContactForm = () => {
 
       {/* Section Contact Info */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Email */}
         <div className="bg-blue-600 rounded-lg p-6 text-white text-center">
           <Mail className="w-8 h-8 mx-auto mb-4" />
           <h3 className="text-xl font-semibold mb-2">Email</h3>
           <p>info@ipropre.ca</p>
         </div>
 
-        {/* Téléphone */}
         <div className="bg-blue-600 rounded-lg p-6 text-white text-center">
           <Phone className="w-8 h-8 mx-auto mb-4" />
           <h3 className="text-xl font-semibold mb-2">Téléphone</h3>
           <p>+1 819-995-2414</p>
         </div>
 
-        {/* Adresse */}
         <div className="bg-blue-600 rounded-lg p-6 text-white text-center">
           <MapPin className="w-8 h-8 mx-auto mb-4" />
           <h3 className="text-xl font-semibold mb-2">Adresse</h3>
