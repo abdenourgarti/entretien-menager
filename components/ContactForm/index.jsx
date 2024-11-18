@@ -114,7 +114,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12">
+    <div className="max-w-7xl mx-auto px-4 py-12 mb-24">
       <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
         <h2 className="text-3xl font-bold text-center mb-8">Contactez-nous</h2>
         
@@ -306,7 +306,7 @@ const ContactForm = () => {
             <button
               type="submit"
               disabled={formik.isSubmitting}
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50"
             >
               {formik.isSubmitting ? 'Envoi en cours...' : 'Envoyer'}
             </button>
