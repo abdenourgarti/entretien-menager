@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Users, ThumbsUp } from 'lucide-react';
+import Image from 'next/image';
 
 const Card = React.forwardRef(({ className, ...props }, ref) => (
   <div
@@ -90,7 +91,9 @@ const TestimonialsCarousel = () => {
       <CardContent className="p-6">
         <div className="flex items-center mb-4">
           <div className="w-12 h-12 rounded-full overflow-hidden">
-            <img 
+            <Image
+              width={100}
+              height={100} 
               src={testimonial.gender === 'female' 
                 ? "/woman-avatar.png" 
                 : "/man-avatar.png"} 
