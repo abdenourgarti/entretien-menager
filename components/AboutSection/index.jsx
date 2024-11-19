@@ -1,7 +1,145 @@
-import React from 'react';
+'use client'
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { Users, Award, Leaf, Shield } from 'lucide-react';
+import { Users, Award, Leaf, Calendar, Shield, Home, Building2, Store, Hotel, GraduationCap, Warehouse, ChevronLeft, ChevronRight } from 'lucide-react';
 import { FaHistory } from "react-icons/fa";
+
+const Card = React.forwardRef(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={`rounded-lg border border-gray-200 bg-white text-gray-950 shadow-sm ${className}`}
+    {...props}
+  />
+));
+Card.displayName = "Card";
+
+const TestimonialsCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollContainerRef = useRef(null);
+  const testimonials = [
+    { icon: Home, label: 'Maison', value: 'maison', description: 'Nettoyage en profondeur de votre résidence pour un environnement sain et agréable.' },
+    { icon: Building2, label: 'Bureau', value: 'bureau', description: 'Assurez une image professionnelle avec un nettoyage régulier de vos locaux.' },
+    { icon: Store, label: 'Commerce', value: 'commerce', description: 'Gardez votre espace commercial accueillant et propre pour vos clients.' },
+    { icon: Hotel, label: 'Clinique', value: 'clinique', description: 'Offrez un environnement sain et sécuritaire à vos patients et employés.' },
+    { icon: GraduationCap, label: 'École', value: 'ecole', description: 'Maintenez un environnement propre et sain pour favoriser l\'apprentissage.' },
+    { icon: Warehouse, label: 'Entrepôt', value: 'entrepot', description: 'Assurez la propreté et l\'organisation de vos espaces de stockage.' },
+  ];
+
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const visibleTestimonials = () => {
+    // Pour les grands écrans, retourner 3 témoignages
+    const lgVisible = 3;
+    // Pour les écrans moyens, retourner 2 témoignages
+    const mdVisible = 2;
+    // Pour les petits écrans, retourner 1 témoignage
+    const smVisible = 1;
+
+    return {
+      lg: Array.from({ length: lgVisible }, (_, i) => {
+        const index = (currentIndex + i) % testimonials.length;
+        return testimonials[index];
+      }),
+      md: Array.from({ length: mdVisible }, (_, i) => {
+        const index = (currentIndex + i) % testimonials.length;
+        return testimonials[index];
+      }),
+      sm: [testimonials[currentIndex]]
+    };
+  };
+
+  const TestimonialCard = ({ testimonial }) => (
+    <Card className="testimonial-card w-full transition-all duration-500 ease-in-out">
+      
+        <div
+          className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow duration-300"
+        >
+          <div className="w-16 h-16 mx-auto mb-4 bg-blue-600 rounded-full flex items-center justify-center">
+            <testimonial.icon className="w-8 h-8 text-white" />
+          </div>
+          <h3 className="text-xl font-bold text-gray-800 mb-2">{testimonial.label}</h3>
+          <p className="text-gray-600 mb-4">{testimonial.description}</p>
+          <a href="#" className="text-blue-600 font-medium hover:underline">
+            En savoir plus
+          </a>
+        </div>
+    </Card>
+  );
+
+  return (
+    <div className="relative mb-16">
+      <div className="text-center mb-12 sm:mb-16">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Nos Services</h2>
+        <p className="text-lg text-gray-600">Découvrez une gamme de services adaptés à vos besoins.</p>
+      </div>
+      
+      <div className="relative px-8">
+        {/* Navigation Buttons */}
+        <button 
+          onClick={handlePrevious}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-blue-600 rounded-full p-2 shadow-lg hover:bg-blue-700"
+          aria-label="Previous testimonial"
+        >
+          <ChevronLeft className="w-6 h-6 text-white" />
+        </button>
+
+        {/* Testimonials Container */}
+        <div ref={scrollContainerRef} className="relative overflow-hidden">
+          {/* Large Screens (3 cards) */}
+          <div className="hidden lg:grid lg:grid-cols-3 gap-4">
+            {visibleTestimonials().lg.map((testimonial, idx) => (
+              <TestimonialCard key={idx} testimonial={testimonial} />
+            ))}
+          </div>
+
+          {/* Medium Screens (2 cards) */}
+          <div className="hidden md:grid lg:hidden md:grid-cols-2 gap-4">
+            {visibleTestimonials().md.map((testimonial, idx) => (
+              <TestimonialCard key={idx} testimonial={testimonial} />
+            ))}
+          </div>
+
+          {/* Small Screens (1 card) */}
+          <div className="block md:hidden">
+            <TestimonialCard testimonial={visibleTestimonials().sm[0]} />
+          </div>
+        </div>
+
+        <button 
+          onClick={handleNext}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-blue-600 rounded-full p-2 shadow-lg hover:bg-blue-700"
+          aria-label="Next testimonial"
+        >
+          <ChevronRight className="w-6 h-6 text-white" />
+        </button>
+      </div>
+
+      {/* Dots Indicator */}
+      <div className="flex justify-center mt-6 gap-2">
+        {testimonials.map((_, index) => (
+          <button
+            key={index}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentIndex ? 'bg-blue-600 w-4' : 'bg-gray-300'
+            }`}
+            onClick={() => setCurrentIndex(index)}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 
 const AboutSection = () => {
   return (
@@ -113,6 +251,70 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
+        {/* Ce Qui Nous Rend Uniques */}
+        <div className="mb-12 sm:mb-16">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4 sm:mt-36">Ce Qui Nous Rend Uniques</h2>
+            <p className="text-lg text-gray-600">Découvrez ce qui fait la différence avec Lieu Propre.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-full h-[100px] mx-auto mb-4 relative">
+                <Image 
+                  src="/green-cleaning.jpeg" 
+                  alt="Produits Écologiques" 
+                  layout="fill" 
+                  objectFit="cover" 
+                  className="rounded-lg"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">Produits Écologiques</h3>
+              <p className="text-gray-600">Nous prenons soin de votre santé et de l'environnement en utilisant uniquement des produits certifiés écologiques.</p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-full h-[100px] mx-auto mb-4 relative">
+                <Image 
+                  src="/team-experience.jpg" 
+                  alt="Équipe Expérimentée" 
+                  layout="fill" 
+                  objectFit="cover" 
+                  className="rounded-lg"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">Équipe Expérimentée</h3>
+              <p className="text-gray-600">Notre équipe qualifiée et sympathique est entièrement formée pour votre tranquillité d'esprit.</p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-full h-[100px] mx-auto mb-4 relative">
+                <Image 
+                  src="/felixible.webp" 
+                  alt="Flexibilité des Services" 
+                  layout="fill" 
+                  objectFit="cover" 
+                  className="rounded-lg"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">Flexibilité des Services</h3>
+              <p className="text-gray-600">Nous nous adaptons à vos besoins spécifiques et vous proposons des solutions personnalisées.</p>
+            </div>
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-full h-[100px] mx-auto mb-4 relative">
+                <Image 
+                  src="/satisfaction.jpg" 
+                  alt="Satisfaction Garantie" 
+                  layout="fill" 
+                  objectFit="cover" 
+                  className="rounded-lg"
+                />
+              </div>
+              <h3 className="text-xl font-bold text-gray-800 mb-2">Satisfaction Garantie</h3>
+              <p className="text-gray-600">Votre satisfaction est notre priorité absolue. Nous ne serons satisfaits que lorsque vous le serez.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Découvrir Nos Services */}
+        <TestimonialsCarousel />
       </div>
     </div>
   );
