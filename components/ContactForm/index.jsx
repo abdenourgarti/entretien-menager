@@ -106,7 +106,7 @@ const ContactForm = () => {
         
         // Création de l'objet de données
         const formData = {
-          access_key: "f3772c7f-ddbc-4292-8a3b-a0e12961247c", // Remplacez par votre clé d'accès
+          access_key: "7755b082-ce87-416d-8e01-9cb5348e6720", // Remplacez par votre clé d'accès
           firstName: values.firstName,
           lastName: values.lastName,
           email: values.email,
@@ -389,7 +389,7 @@ const ContactForm = () => {
         <div className="bg-blue-600 rounded-lg p-6 text-white text-center">
           <Phone className="w-8 h-8 mx-auto mb-4" />
           <h3 className="text-xl font-semibold mb-2">Téléphone</h3>
-          <p>+1 873-664-6906</p>
+          <p>+1 8736644144</p>
         </div>
 
         <div className="bg-blue-600 rounded-lg p-6 text-white text-center">
