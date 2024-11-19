@@ -269,7 +269,7 @@ const AboutSection = () => {
                 />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">Produits Écologiques</h3>
-              <p className="text-gray-600">Nous prenons soin de votre santé et de l'environnement en utilisant uniquement des produits certifiés écologiques.</p>
+              <p className="text-gray-600">Nous prenons soin de votre santé et de l&#39;environnement en utilisant uniquement des produits certifiés écologiques.</p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
               <div className="w-full h-[100px] mx-auto mb-4 relative">
@@ -282,7 +282,7 @@ const AboutSection = () => {
                 />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-2">Équipe Expérimentée</h3>
-              <p className="text-gray-600">Notre équipe qualifiée et sympathique est entièrement formée pour votre tranquillité d'esprit.</p>
+              <p className="text-gray-600">Notre équipe qualifiée et sympathique est entièrement formée pour votre tranquillité d&#39;esprit.</p>
             </div>
             <div className="bg-white p-8 rounded-lg shadow-md text-center">
               <div className="w-full h-[100px] mx-auto mb-4 relative">
