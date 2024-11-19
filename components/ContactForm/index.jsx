@@ -163,18 +163,6 @@ const ContactForm = () => {
       <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
         <h2 className="text-3xl font-bold text-center mb-8">Contactez-nous</h2>
         
-        {submitStatus === 'success' && (
-          <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
-            Message envoyé avec succès!
-          </div>
-        )}
-        
-        {submitStatus === 'error' && (
-          <div className="mb-6 p-4 bg-red-100 text-red-700 rounded-lg">
-            Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.
-          </div>
-        )}
-        
         <form onSubmit={formik.handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Prénom */}
@@ -376,6 +364,17 @@ const ContactForm = () => {
               ) : 'Envoyer'}
             </button>
           </div>
+          {submitStatus === 'success' && (
+            <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
+              Message envoyé avec succès!
+            </div>
+          )}
+          
+          {submitStatus === 'error' && (
+            <div className="mb-6 p-4 bg-red-100 text-red-700 rounded-lg">
+              Une erreur est survenue lors de l&#39;envoi du message. Veuillez réessayer.
+            </div>
+          )}
         </form>
       </div>
 
