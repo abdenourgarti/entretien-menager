@@ -143,7 +143,7 @@ const TestimonialsCarousel = () => {
 
 const AboutSection = () => {
   return (
-    <div className="w-full px-4 py-12">
+    <div className="w-full px-4 py-12 bg-gradient-to-b from-white to-blue-100">
       <div className="max-w-7xl mx-auto">
         {/* Qui sommes-nous ? Section */}
         <div className="mb-20">
