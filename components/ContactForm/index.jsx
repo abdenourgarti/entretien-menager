@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
+import Swal from 'sweetalert2'
 import { 
   Calendar, 
   Mail, 
@@ -129,6 +130,13 @@ const ContactForm = () => {
         const result = await response.json();
         
         if (result.success) {
+          Swal.fire({
+            title: "Message envoyé avec succès!",
+            text: "Un de nos agents vous contactera dans les plus brefs délais.",
+            icon: "success",
+            confirmButtonText: 'Fermer',
+            confirmButtonColor: '#3B82F6' // Couleur bleue pour matcher votre thème
+          });
           setSubmitStatus('success');
           resetForm();
           setTimeout(() => setSubmitStatus(''), 5000); // Effacer le message après 5 secondes
@@ -376,19 +384,19 @@ const ContactForm = () => {
         <div className="bg-blue-600 rounded-lg p-6 text-white text-center">
           <Mail className="w-8 h-8 mx-auto mb-4" />
           <h3 className="text-xl font-semibold mb-2">Email</h3>
-          <p>info@ipropre.ca</p>
+          <p>lieupropre24@gmail.com</p>
         </div>
 
         <div className="bg-blue-600 rounded-lg p-6 text-white text-center">
           <Phone className="w-8 h-8 mx-auto mb-4" />
           <h3 className="text-xl font-semibold mb-2">Téléphone</h3>
-          <p>+1 819-995-2414</p>
+          <p>+1 873-664-6906</p>
         </div>
 
         <div className="bg-blue-600 rounded-lg p-6 text-white text-center">
           <MapPin className="w-8 h-8 mx-auto mb-4" />
           <h3 className="text-xl font-semibold mb-2">Adresse</h3>
-          <p>3085 A. Jean-Noël-Lavoie Bureau 202, Laval, QC H7P 4W5, Canada</p>
+          <p>105 Rue Saint-Laurent Trois-Rivières, Québec, Canada G8T 6G2</p>
         </div>
       </div>
     </div>
