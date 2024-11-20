@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import { Home, Briefcase, Sparkles, Brush, Box, Leaf } from 'lucide-react';
+import { Home, Building2, Store, Hotel, GraduationCap, Warehouse } from 'lucide-react';
 import Image from 'next/image';
 
 const ServiceCard = ({ title, description, icon: Icon, imageUrl, isLeft, isMobile }) => {
@@ -61,40 +61,40 @@ const ServiceCard = ({ title, description, icon: Icon, imageUrl, isLeft, isMobil
 const ServicesSection = () => {
   const services = [
     {
-      title: "Nettoyage Résidentiel",
-      description: "Profitez d'une maison impeccable avec nos services de nettoyage résidentiel personnalisés. Parfait pour les foyers occupés à la recherche d'un espace de vie pristine.",
+      title: "Nettoyage de Maisons",
+      description: "Un nettoyage complet pour un intérieur sain et agréable, adapté à vos besoins.",
       icon: Home,
       imageUrl: "/house-cleaning.jpg"
     },
     {
       title: "Nettoyage de Bureaux",
-      description: "Augmentez la productivité et maintenez un environnement de travail sain avec nos solutions de nettoyage de bureaux sur mesure.",
-      icon: Briefcase,
+      description: "Assurez un espace de travail propre et professionnel pour vos collaborateurs.",
+      icon: Building2,
       imageUrl: "/office-cleaning.jpg"
     },
     {
-      title: "Nettoyage en Profondeur",
-      description: "Transformez votre espace avec nos services de nettoyage en profondeur, en nous occupant des zones difficiles à atteindre.",
-      icon: Sparkles,
+      title: "Nettoyage Commerce",
+      description: "Un espace accueillant et impeccable pour garantir la satisfaction de vos clients.",
+      icon: Store,
       imageUrl: "/deep-cleaning.webp"
     },
     {
-      title: "Nettoyage des Tapis",
-      description: "Revitalisez vos tapis avec nos techniques de nettoyage spécialisées qui éliminent les taches et les odeurs.",
-      icon: Brush,
-      imageUrl: "/carpet-cleaning.jpg"
+      title: "Nettoyage Clinique",
+      description: "Un environnement hygiénique et sécurisé pour vos patients et votre personnel.",
+      icon: Hotel, 
+      imageUrl: "/clinique.png"
     },
     {
-      title: "Nettoyage Déménagement",
-      description: "Facilitez votre déménagement avec nos services complets de nettoyage d'entrée et de sortie.",
-      icon: Box,
-      imageUrl: "/moving-cleaning.jpg"
+      title: "Nettoyage École",
+      description: "Un cadre propre et sain pour favoriser l'apprentissage des élèves.",
+      icon: GraduationCap,
+      imageUrl: "/ecoles.jpg"
     },
     {
-      title: "Nettoyage Écologique",
-      description: "Nous privilégions votre santé et la planète en utilisant uniquement des produits de nettoyage écologiques et non toxiques.",
-      icon: Leaf,
-      imageUrl: "/green-cleaning.jpeg"
+      title: "Nettoyage d\'Entrepôt",
+      description: "Un nettoyage optimisé pour maintenir vos espaces de stockage organisés et sûrs.",
+      icon:  Warehouse,
+      imageUrl: "/entrepot.webp"
     }
   ];
 
