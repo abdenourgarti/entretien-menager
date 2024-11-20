@@ -2,8 +2,13 @@
 import React from 'react';
 import { Home, Building2, Store, Hotel, GraduationCap, Warehouse } from 'lucide-react';
 import Image from 'next/image';
+import { useLocale, useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation'
 
-const ServiceCard = ({ title, description, icon: Icon, imageUrl, isLeft, isMobile }) => {
+const ServiceCard = ({ title, description, icon: Icon, imageUrl, lien, isLeft, isMobile }) => {
+  const t = useTranslations('ServicesHome');
+  const router = useRouter();
+  
   if (isMobile) {
     return (
       <div className="w-full p-4">
@@ -26,8 +31,8 @@ const ServiceCard = ({ title, description, icon: Icon, imageUrl, isLeft, isMobil
         
         <p className="text-gray-600 mb-6">{description}</p>
         
-        <button className="px-6 py-2 text-blue-600 border-2 border-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-colors">
-          En savoir plus
+        <button onClick={() => router.push(lien)} className="px-6 py-2 text-blue-600 border-2 border-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-colors">
+          {t('learnMore')}
         </button>
       </div>
     );
@@ -50,8 +55,8 @@ const ServiceCard = ({ title, description, icon: Icon, imageUrl, isLeft, isMobil
       <p className={`text-gray-600 mb-6`}>{description}</p>
       
       <div>
-        <button className="px-6 py-2 text-blue-600 border-2 border-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-colors">
-          En savoir plus
+        <button onClick={() => router.push(lien)} className="px-6 py-2 text-blue-600 border-2 border-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-colors">
+          {t('learnMore')}
         </button>
       </div>
     </div>
@@ -59,42 +64,51 @@ const ServiceCard = ({ title, description, icon: Icon, imageUrl, isLeft, isMobil
 };
 
 const ServicesSection = () => {
+  const t = useTranslations('ServicesHome');
+  const locale = useLocale();
+  
   const services = [
     {
-      title: "Nettoyage de Maisons",
-      description: "Un nettoyage complet pour un intérieur sain et agréable, adapté à vos besoins.",
+      title: t('services.house.title'),
+      description: t('services.house.description'),
       icon: Home,
-      imageUrl: "/house-cleaning.jpg"
+      imageUrl: "/house-cleaning.jpg",
+      lien: `/${locale}/Services#house`
     },
     {
-      title: "Nettoyage de Bureaux",
-      description: "Assurez un espace de travail propre et professionnel pour vos collaborateurs.",
+      title: t('services.office.title'),
+      description: t('services.office.description'),
       icon: Building2,
-      imageUrl: "/office-cleaning.jpg"
+      imageUrl: "/office-cleaning.jpg",
+      lien: `/${locale}/Services#office`
     },
     {
-      title: "Nettoyage Commerce",
-      description: "Un espace accueillant et impeccable pour garantir la satisfaction de vos clients.",
+      title: t('services.store.title'),
+      description: t('services.store.description'),
       icon: Store,
-      imageUrl: "/deep-cleaning.webp"
+      imageUrl: "/deep-cleaning.webp",
+      lien: `/${locale}/Services#commercial`
     },
     {
-      title: "Nettoyage Clinique",
-      description: "Un environnement hygiénique et sécurisé pour vos patients et votre personnel.",
+      title: t('services.clinic.title'),
+      description: t('services.clinic.description'),
       icon: Hotel, 
-      imageUrl: "/clinique.png"
+      imageUrl: "/clinique.png",
+      lien: `/${locale}/Services#clinic`
     },
     {
-      title: "Nettoyage École",
-      description: "Un cadre propre et sain pour favoriser l'apprentissage des élèves.",
+      title: t('services.school.title'),
+      description: t('services.school.description'),
       icon: GraduationCap,
-      imageUrl: "/ecoles.jpg"
+      imageUrl: "/ecoles.jpg",
+      lien: `/${locale}/Services#school`
     },
     {
-      title: "Nettoyage d\'Entrepôt",
-      description: "Un nettoyage optimisé pour maintenir vos espaces de stockage organisés et sûrs.",
-      icon:  Warehouse,
-      imageUrl: "/entrepot.webp"
+      title: t('services.warehouse.title'),
+      description: t('services.warehouse.description'),
+      icon: Warehouse,
+      imageUrl: "/entrepot.webp",
+      lien: `/${locale}/Services#warehouse`
     }
   ];
 
@@ -102,7 +116,7 @@ const ServicesSection = () => {
     <section className="w-full py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-16">
-          Nos Services Professionnels
+          {t('sectionTitle')}
         </h2>
 
         {/* Desktop View */}

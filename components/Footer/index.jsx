@@ -2,8 +2,11 @@ import React from 'react'
 import './footer.css'
 import Link from 'next/link'
 import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { useLocale, useTranslations } from 'next-intl';
 
 const Footer = () => {
+  const t = useTranslations('Navbar')
+  const locale = useLocale();
   return (
     <footer>
         <div className="waves">
@@ -19,12 +22,12 @@ const Footer = () => {
             <li><Link href="/"><FaLinkedin className='icon' /></Link></li>
         </ul>
         <ul className='menu'>
-            <li><Link className='link' href="/">Home</Link></li>
-            <li><Link className='link' href="/">Services</Link></li>
-            <li><Link className='link' href="/">About Us</Link></li>
-            <li><Link className='link' href="/">Contact Us</Link></li>
+            <li><Link className='link' href={`/${locale}`}>{t('home')}</Link></li>
+            <li><Link className='link' href={`/${locale}/Services`}>{t('services')}</Link></li>
+            <li><Link className='link' href={`/${locale}/About`}>{t('about')}</Link></li>
+            <li><Link className='link' href={`/${locale}/Contact`}>{t('contact')}</Link></li>
         </ul>
-        <p>© Copyright <Link href="https://www.linkedin.com/in/abdenour-garti-19177b192/" target='_blank'>Abdenour</Link> | All rights Reserved</p>
+        <p>© Copyright <Link href="https://www.linkedin.com/in/abdenour-garti-19177b192/" target='_blank'>Abdenour</Link> | {t('copyright')}</p>
     </footer>
   )
 }

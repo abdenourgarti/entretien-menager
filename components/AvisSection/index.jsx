@@ -2,6 +2,7 @@
 import React, { useState, useRef } from 'react';
 import { ChevronLeft, ChevronRight, Users, ThumbsUp } from 'lucide-react';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 const Card = React.forwardRef(({ className, ...props }, ref) => (
   <div
@@ -21,34 +22,34 @@ const CardContent = React.forwardRef(({ className, ...props }, ref) => (
 ));
 CardContent.displayName = "CardContent";
 
-const TestimonialsCarousel = () => {
+const TestimonialsCarousel = ({ t }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollContainerRef = useRef(null);
 
   const testimonials = [
     {
-      text: "Un service exceptionnel ! L'équipe est professionnelle et minutieuse. Je recommande vivement leurs services pour la qualité et le professionnalisme.",
-      author: "Marie Lambert",
+      text: t('testimonials.1.text'),
+      author: t('testimonials.1.author'),
       gender: "female"
     },
     {
-      text: "Très satisfait de la prestation. Le personnel est ponctuel et efficace. Ma maison n'a jamais été aussi propre !",
-      author: "Pierre Dubois",
+      text: t('testimonials.2.text'),
+      author: t('testimonials.2.author'),
       gender: "male"
     },
     {
-      text: "Service impeccable et personnel très courtois. Je suis cliente depuis 6 mois et je ne changerais pour rien au monde.",
-      author: "Sophie Martin",
+      text: t('testimonials.3.text'),
+      author: t('testimonials.3.author'),
       gender: "female"
     },
     {
-      text: "Excellent rapport qualité-prix. Le service client est remarquable et les résultats sont toujours au rendez-vous.",
-      author: "Thomas Richard",
+      text: t('testimonials.4.text'),
+      author: t('testimonials.4.author'),
       gender: "male"
     },
     {
-      text: "Une équipe à l'écoute et très professionnelle. Je suis pleinement satisfaite des prestations.",
-      author: "Julie Moreau",
+      text: t('testimonials.5.text'),
+      author: t('testimonials.5.author'),
       gender: "female"
     }
   ];
@@ -66,11 +67,8 @@ const TestimonialsCarousel = () => {
   };
 
   const visibleTestimonials = () => {
-    // Pour les grands écrans, retourner 3 témoignages
     const lgVisible = 3;
-    // Pour les écrans moyens, retourner 2 témoignages
     const mdVisible = 2;
-    // Pour les petits écrans, retourner 1 témoignage
     const smVisible = 1;
 
     return {
@@ -112,34 +110,28 @@ const TestimonialsCarousel = () => {
 
   return (
     <div className="relative mb-16">
-      
       <div className="relative px-8">
-        {/* Navigation Buttons */}
         <button 
           onClick={handlePrevious}
           className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50"
-          aria-label="Previous testimonial"
+          aria-label={t('previousButton')}
         >
           <ChevronLeft className="w-6 h-6 text-gray-600" />
         </button>
 
-        {/* Testimonials Container */}
         <div ref={scrollContainerRef} className="relative overflow-hidden">
-          {/* Large Screens (3 cards) */}
           <div className="hidden lg:grid lg:grid-cols-3 gap-4">
             {visibleTestimonials().lg.map((testimonial, idx) => (
               <TestimonialCard key={idx} testimonial={testimonial} />
             ))}
           </div>
 
-          {/* Medium Screens (2 cards) */}
           <div className="hidden md:grid lg:hidden md:grid-cols-2 gap-4">
             {visibleTestimonials().md.map((testimonial, idx) => (
               <TestimonialCard key={idx} testimonial={testimonial} />
             ))}
           </div>
 
-          {/* Small Screens (1 card) */}
           <div className="block md:hidden">
             <TestimonialCard testimonial={visibleTestimonials().sm[0]} />
           </div>
@@ -148,13 +140,12 @@ const TestimonialsCarousel = () => {
         <button 
           onClick={handleNext}
           className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-50"
-          aria-label="Next testimonial"
+          aria-label={t('nextButton')}
         >
           <ChevronRight className="w-6 h-6 text-gray-600" />
         </button>
       </div>
 
-      {/* Dots Indicator */}
       <div className="flex justify-center mt-6 gap-2">
         {testimonials.map((_, index) => (
           <button
@@ -170,25 +161,26 @@ const TestimonialsCarousel = () => {
   );
 };
 
-const AvisSection = () =>{
+const AvisSection = () => {
+    const t = useTranslations('AvisSection');
+    
     const stats = [
         {
           icon: <Users className="w-8 h-8 text-blue-600" />,
           number: "500+",
-          label: "Clients Satisfaits"
+          label: t('statsClients')
         },
         {
           icon: <ThumbsUp className="w-8 h-8 text-green-600" />,
           number: "98%",
-          label: "Taux de Satisfaction"
+          label: t('statsSatisfaction')
         }
     ];
 
     return (
         <section className="py-16 px-4 bg-gradient-to-b to-white from-blue-100">
             <div className="max-w-7xl mx-auto">
-                <h3 className="text-2xl font-bold text-center mb-8">Ce que disent nos clients</h3>
-                {/* Stats Section */}
+                <h3 className="text-2xl font-bold text-center mb-8">{t('title')}</h3>
                 <div className="flex flex-wrap justify-center gap-12 mb-16">
                     {stats.map((stat, index) => (
                     <div key={index} className="text-center">
@@ -204,7 +196,7 @@ const AvisSection = () =>{
                     </div>
                     ))}
                 </div>
-                <TestimonialsCarousel />
+                <TestimonialsCarousel t={t} />
             </div>
         </section>
     )

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import { useTranslations } from 'next-intl';
 import { 
   Calendar, 
   Mail, 
@@ -42,14 +43,15 @@ const EnvironmentOption = ({ icon: Icon, label, value, checked, onChange, name }
 const ContactForm = () => {
   const [showDateField, setShowDateField] = useState(false);
   const [submitStatus, setSubmitStatus] = useState('');
+  const t = useTranslations('contact');
 
   const environmentOptions = [
-    { icon: Home, label: 'Maison', value: 'maison' },
-    { icon: Building2, label: 'Bureau', value: 'bureau' },
-    { icon: Store, label: 'Commerce', value: 'commerce' },
-    { icon: Hotel, label: 'Clinique', value: 'clinique' },
-    { icon: GraduationCap, label: 'École', value: 'ecole' },
-    { icon: Warehouse, label: 'Entrepôt', value: 'entrepot' },
+    { icon: Home, label: t('environment.house'), value: 'house' },
+    { icon: Building2, label: t('environment.office'), value: 'office' },
+    { icon: Store, label: t('environment.commerce'), value: 'commerce' },
+    { icon: Hotel, label: t('environment.clinic'), value: 'clinic' },
+    { icon: GraduationCap, label: t('environment.school'), value: 'school' },
+    { icon: Warehouse, label: t('environment.warehouse'), value: 'warehouse' },
   ];
 
   const formik = useFormik({
@@ -67,35 +69,35 @@ const ContactForm = () => {
       const errors = {};
       
       if (!values.firstName) {
-        errors.firstName = 'Le prénom est requis';
+        errors.firstName = t('validation.firstName');
       }
       
       if (!values.lastName) {
-        errors.lastName = 'Le nom est requis';
+        errors.lastName = t('validation.lastName');
       }
       
       if (!values.email) {
-        errors.email = 'L\'email est requis';
+        errors.email = t('validation.email.required');
       } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-        errors.email = 'Adresse email invalide';
+        errors.email = t('validation.email.invalid');
       }
       
       if (!values.phone) {
-        errors.phone = 'Le numéro de téléphone est requis';
+        errors.phone = t('validation.phone.required');
       } else if (!/^\+?[1-9]\d{1,14}$/.test(values.phone.replace(/\s+/g, ''))) {
-        errors.phone = 'Numéro de téléphone invalide';
+        errors.phone = t('validation.phone.invalid');
       }
       
       if (!values.environment) {
-        errors.environment = 'Veuillez choisir un environnement';
+        errors.environment = t('validation.environment');
       }
       
       if (!values.contactType) {
-        errors.contactType = 'Veuillez choisir un type de contact';
+        errors.contactType = t('validation.contactType');
       }
       
-      if (values.contactType === 'rendez-vous' && !values.date) {
-        errors.date = 'La date est requise pour un rendez-vous';
+      if (values.contactType === 'appointment' && !values.date) {
+        errors.date = t('validation.date');
       }
 
       return errors;
@@ -104,9 +106,8 @@ const ContactForm = () => {
       try {
         setSubmitStatus('pending');
         
-        // Création de l'objet de données
         const formData = {
-          access_key: "7755b082-ce87-416d-8e01-9cb5348e6720", // Remplacez par votre clé d'accès
+          access_key: "7755b082-ce87-416d-8e01-9cb5348e6720",
           firstName: values.firstName,
           lastName: values.lastName,
           email: values.email,
@@ -117,7 +118,6 @@ const ContactForm = () => {
           message: values.message
         };
 
-        // Envoi à web3forms
         const response = await fetch("https://api.web3forms.com/submit", {
           method: "POST",
           headers: {
@@ -131,15 +131,15 @@ const ContactForm = () => {
         
         if (result.success) {
           Swal.fire({
-            title: "Message envoyé avec succès!",
-            text: "Un de nos agents vous contactera dans les plus brefs délais.",
+            title: t('success'),
+            text: t('successDetails'),
             icon: "success",
-            confirmButtonText: 'Fermer',
-            confirmButtonColor: '#3B82F6' // Couleur bleue pour matcher votre thème
+            confirmButtonText: t('close'),
+            confirmButtonColor: '#3B82F6'
           });
           setSubmitStatus('success');
           resetForm();
-          setTimeout(() => setSubmitStatus(''), 5000); // Effacer le message après 5 secondes
+          setTimeout(() => setSubmitStatus(''), 5000);
         } else {
           setSubmitStatus('error');
           console.error('Erreur lors de l\'envoi:', result);
@@ -155,22 +155,22 @@ const ContactForm = () => {
 
   const handleContactTypeChange = (e) => {
     formik.handleChange(e);
-    setShowDateField(e.target.value === 'rendez-vous');
+    setShowDateField(e.target.value === 'appointment');
   };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 mb-24">
       <div className="bg-white rounded-lg shadow-lg p-8 mb-12">
-        <h2 className="text-3xl font-bold text-center mb-8">Contactez-nous</h2>
+        <h2 className="text-3xl font-bold text-center mb-8">{t('title')}</h2>
         
         <form onSubmit={formik.handleSubmit} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Prénom */}
+            {/* First Name */}
             <div>
               <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
                 <span className="flex items-center gap-2">
                   <User className="w-4 h-4" />
-                  Prénom
+                  {t('firstName')}
                 </span>
               </label>
               <input
@@ -187,12 +187,12 @@ const ContactForm = () => {
               )}
             </div>
 
-            {/* Nom */}
+            {/* Last Name */}
             <div>
               <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
                 <span className="flex items-center gap-2">
                   <User className="w-4 h-4" />
-                  Nom
+                  {t('lastName')}
                 </span>
               </label>
               <input
@@ -214,7 +214,7 @@ const ContactForm = () => {
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                 <span className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
-                  Email
+                  {t('email')}
                 </span>
               </label>
               <input
@@ -231,12 +231,12 @@ const ContactForm = () => {
               )}
             </div>
 
-            {/* Téléphone */}
+            {/* Phone */}
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
                 <span className="flex items-center gap-2">
                   <Phone className="w-4 h-4" />
-                  Téléphone
+                  {t('phone')}
                 </span>
               </label>
               <input
@@ -254,10 +254,10 @@ const ContactForm = () => {
             </div>
           </div>
 
-          {/* Type d'environnement */}
+          {/* Environment Type */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-4">
-              Vous êtes ?
+              {t('environment.title')}
             </label>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {environmentOptions.map((option) => (
@@ -277,12 +277,12 @@ const ContactForm = () => {
             )}
           </div>
 
-          {/* Type de contact */}
+          {/* Contact Type */}
           <div>
             <label htmlFor="contactType" className="block text-sm font-medium text-gray-700 mb-1">
               <span className="flex items-center gap-2">
                 <MessageCircle className="w-4 h-4" />
-                Type de contact
+                {t('contactType.label')}
               </span>
             </label>
             <select
@@ -293,23 +293,23 @@ const ContactForm = () => {
               value={formik.values.contactType}
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
             >
-              <option value="">Sélectionnez un type</option>
-              <option value="renseignement">Se renseigner</option>
-              <option value="devis">Obtenir un devis</option>
-              <option value="rendez-vous">Prendre rendez-vous</option>
+              <option value="">{t('contactType.select')}</option>
+              <option value="inquiry">{t('contactType.inquiry')}</option>
+              <option value="quote">{t('contactType.quote')}</option>
+              <option value="appointment">{t('contactType.appointment')}</option>
             </select>
             {formik.touched.contactType && formik.errors.contactType && (
               <div className="text-red-500 text-sm mt-1">{formik.errors.contactType}</div>
             )}
           </div>
 
-          {/* Date (conditionnelle) */}
+          {/* Date (conditional) */}
           {showDateField && (
             <div>
               <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">
                 <span className="flex items-center gap-2">
                   <Calendar className="w-4 h-4" />
-                  Date souhaitée
+                  {t('preferredDate')}
                 </span>
               </label>
               <input
@@ -332,7 +332,7 @@ const ContactForm = () => {
             <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
               <span className="flex items-center gap-2">
                 <MessageSquare className="w-4 h-4" />
-                Message
+                {t('message')}
               </span>
             </label>
             <textarea
@@ -346,7 +346,7 @@ const ContactForm = () => {
             />
           </div>
           
-          {/* Bouton d'envoi modifié */}
+          {/* Submit Button */}
           <div className="text-center">
             <button
               type="submit"
@@ -359,43 +359,44 @@ const ContactForm = () => {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
-                  Envoi en cours...
+                  {t('sending')}
                 </>
-              ) : 'Envoyer'}
+              ) : t('submit')}
             </button>
           </div>
+
           {submitStatus === 'success' && (
             <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
-              Message envoyé avec succès!
+              {t('success')}
             </div>
           )}
           
           {submitStatus === 'error' && (
             <div className="mb-6 p-4 bg-red-100 text-red-700 rounded-lg">
-              Une erreur est survenue lors de l&#39;envoi du message. Veuillez réessayer.
+              {t('error')}
             </div>
           )}
         </form>
       </div>
 
-      {/* Section Contact Info */}
+      {/* Contact Info Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="bg-blue-600 rounded-lg p-6 text-white text-center">
           <Mail className="w-8 h-8 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Email</h3>
-          <p>lieupropre24@gmail.com</p>
+          <h3 className="text-xl font-semibold mb-2">{t('contactInfo.email.title')}</h3>
+          <p>{t('contactInfo.email.value')}</p>
         </div>
 
         <div className="bg-blue-600 rounded-lg p-6 text-white text-center">
           <Phone className="w-8 h-8 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Téléphone</h3>
-          <p>+1 8736644144</p>
+          <h3 className="text-xl font-semibold mb-2">{t('contactInfo.phone.title')}</h3>
+          <p>{t('contactInfo.phone.value')}</p>
         </div>
 
         <div className="bg-blue-600 rounded-lg p-6 text-white text-center">
           <MapPin className="w-8 h-8 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Adresse</h3>
-          <p>105 Rue Saint-Laurent Trois-Rivières, Québec, Canada G8T 6G2</p>
+          <h3 className="text-xl font-semibold mb-2">{t('contactInfo.address.title')}</h3>
+          <p>{t('contactInfo.address.value')}</p>
         </div>
       </div>
     </div>

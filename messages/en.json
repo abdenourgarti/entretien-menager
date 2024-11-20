@@ -1,11 +1,354 @@
 {
-    "Navbar":{
-        "schools": "Schools",
-        "contact": "Contact Us",
-        "about": "About Us",
-        "home": "Home",
-        "subscribe": "Sign Up",
-        "login": "Login In",
-        "title": "Nour Al-Quran Academy"
+    "ServicesComponent": {
+    "seo": {
+      "title": "Professional Cleaning Services for Individuals and Businesses",
+      "introduction": "Discover our premium cleaning services in Quebec City. Our team of qualified professionals uses eco-friendly products and innovative techniques to ensure exceptional results. Whether for your home, office, business, clinic, school, or warehouse, we offer customized solutions tailored to your specific needs."
+    },
+    "services": {
+      "house": {
+        "title": "House Cleaning",
+        "description": "Give your home complete care for a clean, healthy, and welcoming environment.",
+        "details": [
+          "Floor cleaning (vacuuming, washing)",
+          "Dusting of all surfaces",
+          "Window cleaning",
+          "Complete kitchen disinfection",
+          "Bathroom disinfection",
+          "Light textile cleaning"
+        ],
+        "why": "Use of eco-friendly and hypoallergenic products. Services adapted to your specific needs.",
+        "buttonText": "Request a Free Quote"
+      },
+      "office": {
+        "title": "Office Cleaning",
+        "description": "A clean workspace improves productivity and reflects your company's professionalism.",
+        "details": [
+          "Individual workspace cleaning",
+          "Floor maintenance",
+          "Common areas cleaning and disinfection",
+          "Waste management",
+          "High-touch point cleaning"
+        ],
+        "why": "Service available outside office hours. Reduced disease risk through thorough disinfection.",
+        "buttonText": "Contact Us"
+      },
+      "commercial": {
+        "title": "Commercial Cleaning",
+        "description": "Create a pleasant experience for your customers with clean and welcoming premises.",
+        "details": [
+          "Window and display cleaning",
+          "Floor maintenance",
+          "Counter and checkout area disinfection",
+          "Waste management",
+          "Customer restroom cleaning"
+        ],
+        "why": "Meticulous work meeting hygiene and safety standards. Flexible scheduling to avoid disrupting your business.",
+        "buttonText": "Get a Customized Quote"
+      },
+      "clinic": {
+        "title": "Medical Facility Cleaning",
+        "description": "Ensure a sterile and secure environment for your patients and staff.",
+        "details": [
+          "Complete examination room disinfection",
+          "Floor cleaning and disinfection",
+          "Medical waste management",
+          "Waiting room maintenance"
+        ],
+        "why": "Use of certified products for medical environments. Staff trained in specific cleaning protocols for medical facilities.",
+        "buttonText": "Request a Consultation"
+      },
+      "school": {
+        "title": "School Cleaning",
+        "description": "A clean environment promotes learning and student well-being.",
+        "details": [
+          "Classroom cleaning",
+          "Restroom and contact point disinfection",
+          "Common area floor maintenance",
+          "Waste management"
+        ],
+        "why": "Services scheduled outside class hours. Dedicated team respecting school safety standards.",
+        "buttonText": "Contact Us"
+      },
+      "warehouse": {
+        "title": "Warehouse Cleaning",
+        "description": "Maintain a clean and organized storage space for efficient management.",
+        "details": [
+          "Aisle and circulation area cleaning",
+          "Shelving dusting and cleaning",
+          "Industrial waste management",
+          "Loading area cleaning"
+        ],
+        "why": "Compliance with industrial environment safety standards. Flexibility to meet your specific business requirements.",
+        "buttonText": "Request a Free Quote"
+      }
+    },
+    "common": {
+      "serviceIncludes": "Our services include:",
+      "whyChooseUs": "Why Choose Us?"
     }
+  },
+  "About": {
+    "title": "About Us",
+    "whoWeAre": {
+      "title": "Who are we?",
+      "description": "Welcome to Clean Place! We are a company specialized in housekeeping, dedicated to making your environment cleaner, healthier, and more pleasant. Since our creation, we have been committed to providing high-quality cleaning services tailored to your needs."
+    },
+    "ourHistory": {
+      "title": "Our History",
+      "description": "Founded in 2015, Clean Place started as a small family business with a simple goal: to provide reliable and affordable cleaning services. Today, we are proud to serve a diverse clientele, from private residences to professional offices, while maintaining our commitment to excellence."
+    },
+    "missionValues": {
+      "title": "Our Mission and Values",
+      "description": "Our mission is to provide exceptional cleaning service that exceeds our clients' expectations. We believe in the importance of trust, quality, and respect for the environment. That's why we use eco-friendly products to protect your health and that of the planet.",
+      "values": {
+        "trust": "Trust",
+        "quality": "Quality",
+        "ecology": "Ecology",
+        "security": "Security"
+      }
+    },
+    "uniqueFeatures": {
+      "title": "What Makes Us Unique",
+      "subtitle": "Discover what makes the difference with Clean Place",
+      "cards": {
+        "ecological": {
+          "title": "Eco-Friendly Products",
+          "description": "We care for your health and the environment by using only certified eco-friendly products."
+        },
+        "experienced": {
+          "title": "Experienced Team",
+          "description": "Our qualified and friendly team is fully trained for your peace of mind."
+        },
+        "flexible": {
+          "title": "Service Flexibility",
+          "description": "We adapt to your specific needs and offer personalized solutions."
+        },
+        "satisfaction": {
+          "title": "Satisfaction Guaranteed",
+          "description": "Your satisfaction is our absolute priority. We won't be satisfied until you are."
+        }
+      }
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Discover a range of services tailored to your needs",
+      "learnMore": "Learn more",
+      "types": {
+        "home": {
+          "title": "Home",
+          "description": "Deep cleaning of your residence for a healthy and pleasant environment."
+        },
+        "office": {
+          "title": "Office",
+          "description": "Ensure a professional image with regular cleaning of your premises."
+        },
+        "store": {
+          "title": "Store",
+          "description": "Keep your commercial space welcoming and clean for your customers."
+        },
+        "clinic": {
+          "title": "Clinic",
+          "description": "Provide a healthy and safe environment for your patients and employees."
+        },
+        "school": {
+          "title": "School",
+          "description": "Maintain a clean and healthy environment to promote learning."
+        },
+        "warehouse": {
+          "title": "Warehouse",
+          "description": "Ensure cleanliness and organization of your storage spaces."
+        }
+      }
+    },
+    "work": "Ready to work with us?",
+    "take": "Make an appointment now to discuss it..",
+    "btn": "Get a Free Quote"
+  },
+  "AvisSection": {
+    "title": "What our clients say",
+    "statsClients": "Satisfied Clients",
+    "statsSatisfaction": "Satisfaction Rate",
+    "testimonials": {
+      "1": {
+        "text": "Exceptional service! The team is professional and thorough. I highly recommend their services for quality and professionalism.",
+        "author": "Marie Lambert"
+      },
+      "2": {
+        "text": "Very satisfied with the service. The staff is punctual and efficient. My house has never been so clean!",
+        "author": "Pierre Dubois"
+      },
+      "3": {
+        "text": "Impeccable service and very courteous staff. I've been a client for 6 months and wouldn't change for anything.",
+        "author": "Sophie Martin"
+      },
+      "4": {
+        "text": "Excellent value for money. Customer service is remarkable and results are always consistent.",
+        "author": "Thomas Richard"
+      },
+      "5": {
+        "text": "An attentive and very professional team. I am fully satisfied with the services.",
+        "author": "Julie Moreau"
+      }
+    },
+    "previousButton": "Previous testimonial",
+    "nextButton": "Next testimonial"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone",
+    "environment": {
+      "title": "You are?",
+      "house": "House",
+      "office": "Office",
+      "commerce": "Business",
+      "clinic": "Clinic",
+      "school": "School",
+      "warehouse": "Warehouse"
+    },
+    "contactType": {
+      "label": "Contact Type",
+      "select": "Select a type",
+      "inquiry": "Get Information",
+      "quote": "Get a Quote",
+      "appointment": "Schedule an Appointment"
+    },
+    "preferredDate": "Preferred Date",
+    "message": "Message",
+    "submit": "Send",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "successDetails": "One of our agents will contact you shortly.",
+    "error": "An error occurred while sending the message. Please try again.",
+    "close": "Close",
+    "validation": {
+      "firstName": "First name is required",
+      "lastName": "Last name is required",
+      "email": {
+        "required": "Email is required",
+        "invalid": "Invalid email address"
+      },
+      "phone": {
+        "required": "Phone number is required",
+        "invalid": "Invalid phone number"
+      },
+      "environment": "Please select an environment",
+      "contactType": "Please select a contact type",
+      "date": "Date is required for appointments"
+    },
+    "contactInfo": {
+      "email": {
+        "title": "Email",
+        "value": "lieupropre24@gmail.com"
+      },
+      "phone": {
+        "title": "Phone",
+        "value": "+1 8736644144"
+      },
+      "address": {
+        "title": "Address",
+        "value": "105 Rue Saint-Laurent Trois-Rivières, Quebec, Canada G8T 6G2"
+      }
+    }
+  },
+  "Navbar":{
+    "home": "Home",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "services": "Services",
+    "copyright": "All rights Reserved"
+  },
+  "hero": {
+    "title": "Professional Cleaning Services - Lieu Propre",
+    "description": "At Lieu Propre, we redefine cleanliness standards with services tailored to your needs: home, office, business, clinics, schools, and warehouses. Trust our expertise for a spotless and healthy environment.",
+    "buttonText": "Learn more"
+  },
+  "WhyChoose": {
+    "mainTitle": "Why Choose Us for Your Cleaning Needs?",
+    "mainDescription": "At Clean Place, we are committed to offering more than just cleaning. With years of experience and a passion for excellence, our team ensures that every corner of your home or office is immaculate.",
+    "ctaButton": "Get a Free Quote",
+    "features": {
+      "trustworthy": {
+        "title": "Trusted Professionals",
+        "description": "Our qualified and friendly team is fully trained for your peace of mind."
+      },
+      "eco": {
+        "title": "Eco-Friendly Products",
+        "description": "We care for your health and the environment by using only certified eco-friendly products."
+      },
+      "flexible": {
+        "title": "Flexible Schedule",
+        "description": "Choose a time that fits your schedule - we'll take care of the rest."
+      },
+      "satisfaction": {
+        "title": "Satisfaction Guaranteed",
+        "description": "We're only satisfied when you are. Your satisfaction is our top priority."
+      }
+    },
+    "stats": {
+      "clients": {
+        "number": "500+",
+        "label": "Satisfied Clients"
+      },
+      "satisfaction": {
+        "number": "98%",
+        "label": "Satisfaction Rate"
+      }
+    }
+  },
+  "HowItWorks": {
+    "mainTitle": "Our Simple 4-Step Process",
+    "mainDescription": "Discover how we transform your space into an immaculate environment",
+    "ctaButton": "Book an Appointment",
+    "steps": {
+      "booking": {
+        "title": "Book a Service",
+        "description": "Choose a date and time that fits your schedule."
+      },
+      "quote": {
+        "title": "Get a Quote",
+        "description": "Receive a transparent estimate for the services you need."
+      },
+      "cleaning": {
+        "title": "We Clean",
+        "description": "Our professional team takes care of everything, ensuring high-quality results."
+      },
+      "enjoy": {
+        "title": "Enjoy Your Clean Space",
+        "description": "Relax in your freshly cleaned space."
+      }
+    }
+  },
+  "ServicesHome": {
+    "sectionTitle": "Our Professional Services",
+    "learnMore": "Learn more",
+    "services": {
+      "house": {
+        "title": "House Cleaning",
+        "description": "A complete cleaning service for a healthy and pleasant interior, tailored to your needs."
+      },
+      "office": {
+        "title": "Office Cleaning",
+        "description": "Ensure a clean and professional workspace for your employees."
+      },
+      "store": {
+        "title": "Store Cleaning",
+        "description": "A welcoming and impeccable space to ensure customer satisfaction."
+      },
+      "clinic": {
+        "title": "Clinical Cleaning",
+        "description": "A hygienic and secure environment for your patients and staff."
+      },
+      "school": {
+        "title": "School Cleaning",
+        "description": "A clean and healthy setting to promote student learning."
+      },
+      "warehouse": {
+        "title": "Warehouse Cleaning",
+        "description": "Optimized cleaning to keep your storage spaces organized and safe."
+      }
+    }
+  }
 }

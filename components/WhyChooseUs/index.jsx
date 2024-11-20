@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslations } from 'next-intl';
 import { CheckCircle2, Leaf, Calendar, Award, Users, ThumbsUp } from 'lucide-react';
 
 // Composant Card intégré
@@ -22,39 +23,41 @@ const CardContent = React.forwardRef(({ className, ...props }, ref) => (
 CardContent.displayName = "CardContent";
 
 const WhyChooseUs = () => {
+  const t = useTranslations('WhyChoose');
+
   const features = [
     {
       icon: <CheckCircle2 className="w-10 h-10 text-blue-600" />,
-      title: "Professionnels de Confiance",
-      description: "Notre équipe qualifiée et sympathique est entièrement formée pour votre tranquillité d'esprit."
+      title: t('features.trustworthy.title'),
+      description: t('features.trustworthy.description')
     },
     {
       icon: <Leaf className="w-10 h-10 text-green-600" />,
-      title: "Produits Écologiques",
-      description: "Nous prenons soin de votre santé et de l'environnement en utilisant uniquement des produits certifiés écologiques."
+      title: t('features.eco.title'),
+      description: t('features.eco.description')
     },
     {
       icon: <Calendar className="w-10 h-10 text-purple-600" />,
-      title: "Horaires Flexibles",
-      description: "Choisissez un horaire qui correspond à votre emploi du temps - nous nous occupons du reste."
+      title: t('features.flexible.title'),
+      description: t('features.flexible.description')
     },
     {
       icon: <Award className="w-10 h-10 text-yellow-600" />,
-      title: "Satisfaction Garantie",
-      description: "Nous ne sommes satisfaits que lorsque vous l'êtes. Votre satisfaction est notre priorité absolue."
+      title: t('features.satisfaction.title'),
+      description: t('features.satisfaction.description')
     }
   ];
 
   const stats = [
     {
       icon: <Users className="w-8 h-8 text-blue-600" />,
-      number: "500+",
-      label: "Clients Satisfaits"
+      number: t('stats.clients.number'),
+      label: t('stats.clients.label')
     },
     {
       icon: <ThumbsUp className="w-8 h-8 text-green-600" />,
-      number: "98%",
-      label: "Taux de Satisfaction"
+      number: t('stats.satisfaction.number'),
+      label: t('stats.satisfaction.label')
     }
   ];
 
@@ -64,19 +67,17 @@ const WhyChooseUs = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Pourquoi Nous Choisir pour Vos Besoins de Nettoyage ?
+            {t('mainTitle')}
           </h2>
           <p className="max-w-3xl mx-auto text-lg text-gray-600">
-            Chez Lieu Propre, nous nous engageons à offrir plus qu&#39;un simple nettoyage. 
-            Avec des années d&#39;expérience et une passion pour l&#39;excellence, notre équipe 
-            garantit que chaque recoin de votre maison ou bureau soit impeccable.
+            {t('mainDescription')}
           </p>
         </div>
 
         {/* CTA Button */}
         <div className="text-center mb-12">
           <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
-            Obtenir un Devis Gratuit
+            {t('ctaButton')}
           </button>
         </div>
 
@@ -98,7 +99,6 @@ const WhyChooseUs = () => {
             </Card>
           ))}
         </div>
-
       </div>
     </section>
   );

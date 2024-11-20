@@ -7,7 +7,7 @@ import { CiMenuFries } from "react-icons/ci"
 import { IoIosCloseCircleOutline } from "react-icons/io"
 import { IoEarthOutline } from "react-icons/io5"
 import { usePathname, useRouter } from 'next/navigation'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { IoIosArrowDown } from "react-icons/io"
 
 const Navbar = () => {
@@ -17,6 +17,8 @@ const Navbar = () => {
   const pathname = usePathname()
   const router = useRouter()
   const locale = useLocale()
+
+  const t = useTranslations('Navbar');
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
@@ -46,17 +48,17 @@ const Navbar = () => {
       </Link>
       <ul className={`${mobileMenu ? '' : 'hide-mobile-menu'}`}>
         <li className={isActive('') ? 'active' : ''}>
-          <Link href={`/${locale}`}>Home</Link>
+          <Link href={`/${locale}`}>{t('home')}</Link>
         </li>
         <li className={isActive('Services') ? 'active' : ''}>
-          <Link href={`/${locale}/Services`}>Services</Link>
+          <Link href={`/${locale}/Services`}>{t('services')}</Link>
         </li>
         <li className={isActive('About') ? 'active' : ''}>
-          <Link href={`/${locale}/About`}>About</Link>
+          <Link href={`/${locale}/About`}>{t('about')}</Link>
         </li>
         <li>
           <button className={`${sticky ? (mobileMenu ? 'btn' : 'btn-dark') : 'btn'}`} onClick={() => router.push(`/${locale}/Contact`)}>
-            Contact Us
+          {t('contact')}
           </button>
         </li>
         <li className="language-selector">

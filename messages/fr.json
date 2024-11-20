@@ -1,11 +1,354 @@
 {
-    "Navbar":{
-        "schools": "Ecoles",
-        "contact": "Nous contacter",
-        "about": "À propos",
-        "home": "Accueil",
-        "subscribe": "S'inscrire",
-        "login": "Se connecter",
-        "title": "Nour Al-Quran Académie "
+    "ServicesComponent": {
+    "seo": {
+      "title": "Services de Nettoyage Professionnel pour Particuliers et Entreprises",
+      "introduction": "Découvrez nos services de nettoyage haut de gamme à Québec. Notre équipe de professionnels qualifiés utilise des produits écologiques et des techniques innovantes pour garantir des résultats exceptionnels. Que ce soit pour votre maison, bureau, commerce, clinique, école ou entrepôt, nous vous offrons des solutions personnalisées adaptées à vos besoins spécifiques."
+    },
+    "services": {
+      "house": {
+        "title": "Nettoyage Maison",
+        "description": "Offrez à votre foyer un soin complet pour un environnement propre, sain et accueillant.",
+        "details": [
+          "Nettoyage des sols (aspiration, lavage)",
+          "Dépoussiérage de toutes les surfaces",
+          "Nettoyage des vitres",
+          "Désinfection complète de la cuisine",
+          "Désinfection des salles de bain",
+          "Nettoyage des textiles légers"
+        ],
+        "why": "Utilisation de produits écologiques et hypoallergéniques. Adaptation des prestations à vos besoins spécifiques.",
+        "buttonText": "Demander un devis gratuit"
+      },
+      "office": {
+        "title": "Nettoyage Bureau",
+        "description": "Un espace de travail propre améliore la productivité et reflète le professionnalisme de votre entreprise.",
+        "details": [
+          "Nettoyage des espaces de travail individuels",
+          "Entretien des sols",
+          "Nettoyage et désinfection des salles communes",
+          "Vidage et gestion des poubelles",
+          "Nettoyage des points de contact fréquents"
+        ],
+        "why": "Prestation possible en dehors des heures de bureau. Réduction des risques de maladies grâce à une désinfection approfondie.",
+        "buttonText": "Contactez-nous"
+      },
+      "commercial": {
+        "title": "Nettoyage Commerce",
+        "description": "Créez une expérience agréable pour vos clients grâce à des locaux propres et accueillants.",
+        "details": [
+          "Nettoyage des vitrines et des présentoirs",
+          "Entretien des sols",
+          "Désinfection des comptoirs et des caisses",
+          "Gestion des déchets",
+          "Nettoyage des toilettes clients"
+        ],
+        "why": "Travail soigné pour répondre aux normes d'hygiène et de sécurité. Flexibilité dans les horaires pour ne pas perturber votre activité.",
+        "buttonText": "Obtenir un devis personnalisé"
+      },
+      "clinic": {
+        "title": "Nettoyage Clinique",
+        "description": "Assurez un environnement stérile et sécurisé pour vos patients et votre personnel.",
+        "details": [
+          "Désinfection complète des salles d'examen",
+          "Nettoyage et désinfection des sols",
+          "Gestion des déchets médicaux",
+          "Entretien des salles d'attente"
+        ],
+        "why": "Utilisation de produits certifiés pour un environnement médical. Personnel formé aux protocoles spécifiques de nettoyage pour le secteur médical.",
+        "buttonText": "Demander une consultation"
+      },
+      "school": {
+        "title": "Nettoyage École",
+        "description": "Un environnement propre favorise l'apprentissage et le bien-être des élèves.",
+        "details": [
+          "Nettoyage des salles de classe",
+          "Désinfection des toilettes et points de contact",
+          "Entretien des sols dans les zones communes",
+          "Gestion des déchets"
+        ],
+        "why": "Services planifiés en dehors des heures de classe. Équipe dédiée pour respecter les normes de sécurité dans les établissements scolaires.",
+        "buttonText": "Contactez-nous"
+      },
+      "warehouse": {
+        "title": "Nettoyage Entrepôt",
+        "description": "Maintenez un espace de stockage propre et organisé pour une gestion efficace.",
+        "details": [
+          "Nettoyage des allées et zones de circulation",
+          "Dépoussiérage et nettoyage des rayonnages",
+          "Gestion des déchets industriels",
+          "Nettoyage des zones de chargement"
+        ],
+        "why": "Respect des normes de sécurité dans les environnements industriels. Flexibilité pour répondre aux exigences spécifiques de votre activité.",
+        "buttonText": "Demander un devis gratuit"
+      }
+    },
+    "common": {
+      "serviceIncludes": "Nos prestations incluent :",
+      "whyChooseUs": "Pourquoi nous choisir ?"
     }
+  },
+  "About": {
+    "title": "À propos de nous",
+    "whoWeAre": {
+      "title": "Qui sommes-nous ?",
+      "description": "Bienvenue chez Lieu Propre ! Nous sommes une entreprise spécialisée dans l'entretien ménager, dédiée à rendre votre environnement plus propre, plus sain, et plus agréable. Depuis notre création, nous nous engageons à offrir des services de nettoyage de haute qualité, adaptés à vos besoins."
+    },
+    "ourHistory": {
+      "title": "Notre Histoire",
+      "description": "Fondée en 2015, Lieu Propre a commencé comme une petite entreprise familiale avec un objectif simple : offrir des services de nettoyage fiables et abordables. Aujourd'hui, nous sommes fiers de servir une clientèle variée, des résidences privées aux bureaux professionnels, tout en maintenant notre engagement envers l'excellence."
+    },
+    "missionValues": {
+      "title": "Notre Mission et Nos Valeurs",
+      "description": "Notre mission est d'assurer un service de nettoyage exceptionnel qui dépasse les attentes de nos clients. Nous croyons en l'importance de la confiance, de la qualité, et du respect de l'environnement. C'est pourquoi nous utilisons des produits écologiques pour protéger votre santé et celle de la planète.",
+      "values": {
+        "trust": "Confiance",
+        "quality": "Qualité",
+        "ecology": "Écologie",
+        "security": "Sécurité"
+      }
+    },
+    "uniqueFeatures": {
+      "title": "Ce Qui Nous Rend Uniques",
+      "subtitle": "Découvrez ce qui fait la différence avec Lieu Propre",
+      "cards": {
+        "ecological": {
+          "title": "Produits Écologiques",
+          "description": "Nous prenons soin de votre santé et de l'environnement en utilisant uniquement des produits certifiés écologiques."
+        },
+        "experienced": {
+          "title": "Équipe Expérimentée",
+          "description": "Notre équipe qualifiée et sympathique est entièrement formée pour votre tranquillité d'esprit."
+        },
+        "flexible": {
+          "title": "Flexibilité des Services",
+          "description": "Nous nous adaptons à vos besoins spécifiques et vous proposons des solutions personnalisées."
+        },
+        "satisfaction": {
+          "title": "Satisfaction Garantie",
+          "description": "Votre satisfaction est notre priorité absolue. Nous ne serons satisfaits que lorsque vous le serez."
+        }
+      }
+    },
+    "services": {
+      "title": "Nos Services",
+      "subtitle": "Découvrez une gamme de services adaptés à vos besoins",
+      "learnMore": "En savoir plus",
+      "types": {
+        "home": {
+          "title": "Maison",
+          "description": "Nettoyage en profondeur de votre résidence pour un environnement sain et agréable."
+        },
+        "office": {
+          "title": "Bureau",
+          "description": "Assurez une image professionnelle avec un nettoyage régulier de vos locaux."
+        },
+        "store": {
+          "title": "Commerce",
+          "description": "Gardez votre espace commercial accueillant et propre pour vos clients."
+        },
+        "clinic": {
+          "title": "Clinique",
+          "description": "Offrez un environnement sain et sécuritaire à vos patients et employés."
+        },
+        "school": {
+          "title": "École",
+          "description": "Maintenez un environnement propre et sain pour favoriser l'apprentissage."
+        },
+        "warehouse": {
+          "title": "Entrepôt",
+          "description": "Assurez la propreté et l'organisation de vos espaces de stockage."
+        }
+      }
+    },
+    "work": "Prêt à travailler avec nous ?",
+    "take": "Prenez rendez-vous dès maintenant pour en discuter.",
+    "btn": "Obtenir un Devis Gratuit"
+  },
+  "AvisSection": {
+    "title": "Ce que disent nos clients",
+    "statsClients": "Clients Satisfaits",
+    "statsSatisfaction": "Taux de Satisfaction",
+    "testimonials": {
+      "1": {
+        "text": "Un service exceptionnel ! L'équipe est professionnelle et minutieuse. Je recommande vivement leurs services pour la qualité et le professionnalisme.",
+        "author": "Marie Lambert"
+      },
+      "2": {
+        "text": "Très satisfait de la prestation. Le personnel est ponctuel et efficace. Ma maison n'a jamais été aussi propre !",
+        "author": "Pierre Dubois"
+      },
+      "3": {
+        "text": "Service impeccable et personnel très courtois. Je suis cliente depuis 6 mois et je ne changerais pour rien au monde.",
+        "author": "Sophie Martin"
+      },
+      "4": {
+        "text": "Excellent rapport qualité-prix. Le service client est remarquable et les résultats sont toujours au rendez-vous.",
+        "author": "Thomas Richard"
+      },
+      "5": {
+        "text": "Une équipe à l'écoute et très professionnelle. Je suis pleinement satisfaite des prestations.",
+        "author": "Julie Moreau"
+      }
+    },
+    "previousButton": "Témoignage précédent",
+    "nextButton": "Témoignage suivant"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "email": "Email",
+    "phone": "Téléphone",
+    "environment": {
+      "title": "Vous êtes ?",
+      "house": "Maison",
+      "office": "Bureau",
+      "commerce": "Commerce",
+      "clinic": "Clinique",
+      "school": "École",
+      "warehouse": "Entrepôt"
+    },
+    "contactType": {
+      "label": "Type de contact",
+      "select": "Sélectionnez un type",
+      "inquiry": "Se renseigner",
+      "quote": "Obtenir un devis",
+      "appointment": "Prendre rendez-vous"
+    },
+    "preferredDate": "Date souhaitée",
+    "message": "Message",
+    "submit": "Envoyer",
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé avec succès!",
+    "successDetails": "Un de nos agents vous contactera dans les plus brefs délais.",
+    "error": "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.",
+    "close": "Fermer",
+    "validation": {
+      "firstName": "Le prénom est requis",
+      "lastName": "Le nom est requis",
+      "email": {
+        "required": "L'email est requis",
+        "invalid": "Adresse email invalide"
+      },
+      "phone": {
+        "required": "Le numéro de téléphone est requis",
+        "invalid": "Numéro de téléphone invalide"
+      },
+      "environment": "Veuillez choisir un environnement",
+      "contactType": "Veuillez choisir un type de contact",
+      "date": "La date est requise pour un rendez-vous"
+    },
+    "contactInfo": {
+      "email": {
+        "title": "Email",
+        "value": "lieupropre24@gmail.com"
+      },
+      "phone": {
+        "title": "Téléphone",
+        "value": "+1 8736644144"
+      },
+      "address": {
+        "title": "Adresse",
+        "value": "105 Rue Saint-Laurent Trois-Rivières, Québec, Canada G8T 6G2"
+      }
+    }
+  },
+  "Navbar":{
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact-Nous",
+    "services": "Services",
+    "copyright": "Tous Droits Réservés"
+  },
+  "hero": {
+    "title": "Services de nettoyage professionnels - Lieu Propre",
+    "description": "Chez Lieu Propre, nous redéfinissons les standards de propreté avec des services adaptés à tous vos besoins : maison, bureau, commerce, cliniques, écoles et entrepôts. Faites confiance à notre expertise pour un environnement impeccable et sain.",
+    "buttonText": "En savoir plus"
+  },
+  "WhyChoose": {
+    "mainTitle": "Pourquoi Nous Choisir pour Vos Besoins de Nettoyage ?",
+    "mainDescription": "Chez Lieu Propre, nous nous engageons à offrir plus qu'un simple nettoyage. Avec des années d'expérience et une passion pour l'excellence, notre équipe garantit que chaque recoin de votre maison ou bureau soit impeccable.",
+    "ctaButton": "Obtenir un Devis Gratuit",
+    "features": {
+      "trustworthy": {
+        "title": "Professionnels de Confiance",
+        "description": "Notre équipe qualifiée et sympathique est entièrement formée pour votre tranquillité d'esprit."
+      },
+      "eco": {
+        "title": "Produits Écologiques",
+        "description": "Nous prenons soin de votre santé et de l'environnement en utilisant uniquement des produits certifiés écologiques."
+      },
+      "flexible": {
+        "title": "Horaires Flexibles",
+        "description": "Choisissez un horaire qui correspond à votre emploi du temps - nous nous occupons du reste."
+      },
+      "satisfaction": {
+        "title": "Satisfaction Garantie",
+        "description": "Nous ne sommes satisfaits que lorsque vous l'êtes. Votre satisfaction est notre priorité absolue."
+      }
+    },
+    "stats": {
+      "clients": {
+        "number": "500+",
+        "label": "Clients Satisfaits"
+      },
+      "satisfaction": {
+        "number": "98%",
+        "label": "Taux de Satisfaction"
+      }
+    }
+  },
+  "HowItWorks": {
+    "mainTitle": "Notre Processus en 4 Étapes Simples",
+    "mainDescription": "Découvrez comment nous transformons votre espace en un environnement impeccable",
+    "ctaButton": "Prendre rendez-vous",
+    "steps": {
+      "booking": {
+        "title": "Réserver un Service",
+        "description": "Choisissez une date et une heure qui conviennent à votre emploi du temps."
+      },
+      "quote": {
+        "title": "Obtenir un Devis",
+        "description": "Recevez une estimation transparente pour les services dont vous avez besoin."
+      },
+      "cleaning": {
+        "title": "Nous Nettoyons",
+        "description": "Notre équipe professionnelle s'occupe de tout, garantissant des résultats de haute qualité."
+      },
+      "enjoy": {
+        "title": "Profitez de Votre Espace Propre",
+        "description": "Détendez-vous dans votre espace fraîchement nettoyé."
+      }
+    }
+  },
+  "ServicesHome": {
+    "sectionTitle": "Nos Services Professionnels",
+    "learnMore": "En savoir plus",
+    "services": {
+      "house": {
+        "title": "Nettoyage de Maisons",
+        "description": "Un nettoyage complet pour un intérieur sain et agréable, adapté à vos besoins."
+      },
+      "office": {
+        "title": "Nettoyage de Bureaux",
+        "description": "Assurez un espace de travail propre et professionnel pour vos collaborateurs."
+      },
+      "store": {
+        "title": "Nettoyage Commerce",
+        "description": "Un espace accueillant et impeccable pour garantir la satisfaction de vos clients."
+      },
+      "clinic": {
+        "title": "Nettoyage Clinique",
+        "description": "Un environnement hygiénique et sécurisé pour vos patients et votre personnel."
+      },
+      "school": {
+        "title": "Nettoyage École",
+        "description": "Un cadre propre et sain pour favoriser l'apprentissage des élèves."
+      },
+      "warehouse": {
+        "title": "Nettoyage d'Entrepôt",
+        "description": "Un nettoyage optimisé pour maintenir vos espaces de stockage organisés et sûrs."
+      }
+    }
+  }
 }
