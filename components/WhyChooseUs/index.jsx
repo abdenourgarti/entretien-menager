@@ -1,5 +1,7 @@
+'use client'
 import React from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation'
 import { CheckCircle2, Leaf, Calendar, Award, Users, ThumbsUp } from 'lucide-react';
 
 // Composant Card intégré
@@ -24,7 +26,8 @@ CardContent.displayName = "CardContent";
 
 const WhyChooseUs = () => {
   const t = useTranslations('WhyChoose');
-
+  const locale = useLocale()
+  const router = useRouter();
   const features = [
     {
       icon: <CheckCircle2 className="w-10 h-10 text-blue-600" />,
@@ -76,7 +79,7 @@ const WhyChooseUs = () => {
 
         {/* CTA Button */}
         <div className="text-center mb-12">
-          <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
+          <button onClick={() => router.push(`/${locale}/Contact`)} className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
             {t('ctaButton')}
           </button>
         </div>

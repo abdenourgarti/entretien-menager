@@ -1,3 +1,4 @@
+'use client'
 import AboutUs from '@/components/AboutSection'
 import AvisSection from '@/components/AvisSection'
 import Footer from '@/components/Footer'
@@ -5,10 +6,13 @@ import Navbar from '@/components/Navbar'
 import Image from 'next/image'
 import React from 'react'
 import { MdOutlineEast } from "react-icons/md";
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation'
 
 const About = () => {
     const t = useTranslations('About');
+    const locale = useLocale()
+    const router = useRouter();
     return (
         <div>
             <Navbar />
@@ -21,7 +25,7 @@ const About = () => {
                 <h2 className="text-3xl font-bold text-gray-800 mb-4">{t('work')}</h2>
                 <p className="text-lg text-gray-600 leading-relaxed mb-6">{t('take')}</p>
                 <div className="text-center mb-12">
-                    <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
+                    <button onClick={() => router.push(`/${locale}/Contact`)} className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
                     {t('btn')}
                     </button>
                 </div>

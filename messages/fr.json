@@ -95,7 +95,7 @@
     },
     "ourHistory": {
       "title": "Notre Histoire",
-      "description": "Fondée en 2015, Lieu Propre a commencé comme une petite entreprise familiale avec un objectif simple : offrir des services de nettoyage fiables et abordables. Aujourd'hui, nous sommes fiers de servir une clientèle variée, des résidences privées aux bureaux professionnels, tout en maintenant notre engagement envers l'excellence."
+      "description": "Fondée en 2023, Lieu Propre a commencé comme une petite entreprise familiale avec un objectif simple : offrir des services de nettoyage fiables et abordables. Aujourd'hui, nous sommes fiers de servir une clientèle variée, des résidences privées aux bureaux professionnels, tout en maintenant notre engagement envers l'excellence."
     },
     "missionValues": {
       "title": "Notre Mission et Nos Valeurs",
@@ -256,7 +256,7 @@
   "Navbar":{
     "home": "Accueil",
     "about": "À propos",
-    "contact": "Contact-Nous",
+    "contact": "Contactez-Nous",
     "services": "Services",
     "copyright": "Tous Droits Réservés"
   },

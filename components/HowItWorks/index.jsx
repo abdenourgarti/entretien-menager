@@ -1,9 +1,12 @@
 'use client'
 import React from 'react';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation'
 
 const HowItWorksSection = () => {
   const t = useTranslations('HowItWorks');
+  const locale = useLocale()
+  const router = useRouter();
 
   const steps = [
     {
@@ -85,7 +88,7 @@ const HowItWorksSection = () => {
 
           {/* Bouton */}
           <div className="text-center relative">
-            <button className="bg-[#2563EB] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
+            <button onClick={() => router.push(`/${locale}/Contact`)} className="bg-[#2563EB] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300">
               {t('ctaButton')}
             </button>
           </div>

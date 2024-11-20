@@ -1,7 +1,7 @@
 import React from 'react'
 import './footer.css'
 import Link from 'next/link'
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa";
 import { useLocale, useTranslations } from 'next-intl';
 
 const Footer = () => {
@@ -16,10 +16,9 @@ const Footer = () => {
             <div className='wave' id='wave4'></div>
         </div>
         <ul className='social-icon'>
-            <li><Link href="/"><FaFacebook className='icon' /></Link></li>
-            <li><Link href="/"><FaInstagram className='icon' /></Link></li>
-            <li><Link href="/"><FaTwitter className='icon' /></Link></li>
-            <li><Link href="/"><FaLinkedin className='icon' /></Link></li>
+            <li><Link href="https://www.facebook.com/profile.php?id=61561167363198&mibextid=ZbWKwL" target='_blank'><FaFacebook className='icon' /></Link></li>
+            <li><Link href="https://youtube.com/@lieupropre?si=8vTRu36Y8jh7CkWe" target='_blank'><FaYoutube className='icon' /></Link></li>
+            <li><Link href="https://www.linkedin.com/in/lieupropre-lieu-propre-164b83338/" target='_blank'><FaLinkedin className='icon' /></Link></li>
         </ul>
         <ul className='menu'>
             <li><Link className='link' href={`/${locale}`}>{t('home')}</Link></li>

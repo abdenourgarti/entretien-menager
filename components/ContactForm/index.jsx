@@ -106,30 +106,28 @@ const ContactForm = () => {
       try {
         setSubmitStatus('pending');
         
-        const formData = {
-          access_key: "7755b082-ce87-416d-8e01-9cb5348e6720",
-          firstName: values.firstName,
-          lastName: values.lastName,
-          email: values.email,
-          phone: values.phone,
-          environment: values.environment,
-          contactType: values.contactType,
-          date: values.date,
-          message: values.message
-        };
+        // Préparer les données pour Formspree
+        const formData = new FormData();
+        formData.append('firstName', values.firstName);
+        formData.append('lastName', values.lastName);
+        formData.append('email', values.email);
+        formData.append('phone', values.phone);
+        formData.append('environment', values.environment);
+        formData.append('contactType', values.contactType);
+        formData.append('date', values.date || 'N/A');
+        formData.append('message', values.message);
 
-        const response = await fetch("https://api.web3forms.com/submit", {
+        const response = await fetch("https://formspree.io/f/mnnqzgbg", {
           method: "POST",
+          body: formData,
           headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          body: JSON.stringify(formData)
+            'Accept': 'application/json'
+          }
         });
 
         const result = await response.json();
         
-        if (result.success) {
+        if (response.ok) {
           Swal.fire({
             title: t('success'),
             text: t('successDetails'),
