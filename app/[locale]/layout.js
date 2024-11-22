@@ -4,6 +4,8 @@ import { NextIntlClientProvider } from 'next-intl';
 
 const inter = Inter({ subsets: ["latin"] });
 
+// Important : Next.js détecte automatiquement cette fonction generateMetadata
+// Elle sera utilisée pour générer les métadonnées du site
 export async function generateMetadata({ params }) {
   const { locale } = params;
   
@@ -23,7 +25,7 @@ export async function generateMetadata({ params }) {
   };
 
   return {
-    metadataBase: new URL('http://lieupropre.ca'),
+    metadataBase: new URL('https://lieupropre.ca'), // Mis à jour avec https
     title: metaData.title[locale],
     description: metaData.description[locale],
     keywords: metaData.keywords[locale],
@@ -42,6 +44,11 @@ export async function generateMetadata({ params }) {
         'en-CA': '/en',
       },
     },
+    icons: {
+      icon: '/logo.png',
+      shortcut: '/logo.png',
+      apple: '/logo.png',
+    },
     robots: {
       index: true,
       follow: true,
@@ -56,7 +63,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       type: 'website',
       locale: locale === 'fr' ? 'fr_CA' : 'en_CA',
-      url: 'http://lieupropre.ca',
+      url: 'https://lieupropre.ca', // Mis à jour avec https
       siteName: 'Lieu Propre',
       title: metaData.title[locale],
       description: metaData.description[locale],
@@ -76,6 +83,9 @@ export async function generateMetadata({ params }) {
       images: ['/logo.jpg'],
     },
     category: 'Services de nettoyage',
+    verification: {
+      google: 'Nix1bgkoIhGFPdgQeRAG3g0P8xBvcJ5x7bcK5e3DJ4c'
+    }
   };
 }
 
