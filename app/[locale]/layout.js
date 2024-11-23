@@ -4,11 +4,9 @@ import { NextIntlClientProvider } from 'next-intl';
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Important : Next.js détecte automatiquement cette fonction generateMetadata
-// Elle sera utilisée pour générer les métadonnées du site
 export async function generateMetadata({ params }) {
   const { locale } = params;
-  
+
   const metaData = {
     title: {
       fr: "Lieu Propre | Services d'Entretien Ménager Professionnel au Québec",
@@ -19,13 +17,24 @@ export async function generateMetadata({ params }) {
       en: "Lieu Propre provides top-quality residential and commercial cleaning services in Quebec. House cleaning, office cleaning, business cleaning and more. Free quote ☎",
     },
     keywords: {
-      fr: "entretien ménager Québec, nettoyage maison, service de nettoyage, femme de ménage, nettoyage commercial, nettoyage résidentiel, lieu propre, entreprise nettoyage Québec",
-      en: "cleaning services Quebec, house cleaning, cleaning service, maid service, commercial cleaning, residential cleaning, lieu propre, cleaning company Quebec",
+      fr: "lieu propre, lieupropre, lieu-propre, lieu propre Québec, lieupropre Québec, lieu-propre Québec, lieupropre.ca, entretien ménager, entretien ménager Québec, nettoyage maison, service de nettoyage, femme de ménage, nettoyage commercial, nettoyage résidentiel, entreprise nettoyage Québec",
+      en: "lieu propre, lieupropre, lieu-propre, lieu propre Québec, lieupropre Québec, lieu-propre Québec, lieupropre.ca, cleaning services, cleaning services Quebec, house cleaning, cleaning service, maid service, commercial cleaning, residential cleaning, cleaning company Quebec",
     }
   };
 
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CleaningService',
+    name: 'Lieu Propre',
+    image: 'https://lieupropre.ca/logo.png',
+    '@id': 'https://lieupropre.ca',
+    url: 'https://lieupropre.ca',
+    description: metaData.description[locale],
+    areaServed: 'Québec',
+  };
+
   return {
-    metadataBase: new URL('https://lieupropre.ca'), // Mis à jour avec https
+    metadataBase: new URL('https://lieupropre.ca'),
     title: metaData.title[locale],
     description: metaData.description[locale],
     keywords: metaData.keywords[locale],
@@ -45,9 +54,15 @@ export async function generateMetadata({ params }) {
       },
     },
     icons: {
-      icon: '/logo.png',
+      icon: [
+        { url: '/logo.png', sizes: '32x32', type: 'image/png' },
+        { url: '/logo.png', sizes: '192x192', type: 'image/png' },
+        { url: '/logo.png', sizes: '512x512', type: 'image/png' }
+      ],
       shortcut: '/logo.png',
-      apple: '/logo.png',
+      apple: [
+        { url: '/logo.png', sizes: '180x180', type: 'image/png' },
+      ],
     },
     robots: {
       index: true,
@@ -63,13 +78,13 @@ export async function generateMetadata({ params }) {
     openGraph: {
       type: 'website',
       locale: locale === 'fr' ? 'fr_CA' : 'en_CA',
-      url: 'https://lieupropre.ca', // Mis à jour avec https
+      url: 'https://lieupropre.ca',
       siteName: 'Lieu Propre',
       title: metaData.title[locale],
       description: metaData.description[locale],
       images: [
         {
-          url: '/logo.jpg',
+          url: 'https://lieupropre.ca/logo.png',
           width: 1200,
           height: 630,
           alt: 'Lieu Propre - Services de nettoyage professionnel',
@@ -80,18 +95,24 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title: metaData.title[locale],
       description: metaData.description[locale],
-      images: ['/logo.jpg'],
+      images: ['https://lieupropre.ca/logo.png'],
     },
     category: 'Services de nettoyage',
     verification: {
       google: 'Nix1bgkoIhGFPdgQeRAG3g0P8xBvcJ5x7bcK5e3DJ4c'
-    }
+    },
+    script: [
+      {
+        type: 'application/ld+json',
+        text: JSON.stringify(organizationSchema)
+      }
+    ]
   };
 }
 
 export default async function RootLayout({ children, params }) {
   const { locale } = params;
-  
+
   let messages;
   try {
     messages = require(`../../messages/${locale}.json`);
@@ -100,8 +121,8 @@ export default async function RootLayout({ children, params }) {
   }
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <body className={`${inter.className} overflow-x-hidden`}>
+    <html lang={locale}>
+      <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>
